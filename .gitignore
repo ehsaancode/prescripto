@@ -22,3 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Ignore node_modules everywhere
+node_modules/
+
+
+# Ignore build artifacts
+dist/
+.next/
+build/
+
+# macOS & VSCode stuff
+.DS_Store
+.vscode/
