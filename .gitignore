@@ -1,3 +1,5 @@
+# Ignore node_modules everywhere
+node_modules/
 # Logs
 logs
 *.log
@@ -23,8 +25,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignore node_modules everywhere
-node_modules/
+
 
 
 # Ignore build artifacts

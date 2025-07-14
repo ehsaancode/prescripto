@@ -5,6 +5,7 @@ import 'dotenv/config'
 import connectCloudlinary from './config/cloudlinary.js'
 
 import connectDB from './config/mongodb.js'
+import adminRouter from './routes/adminRoute.js'
 
 
 //app config
@@ -21,6 +22,9 @@ app.use(express.json())
 app.use(cors())
 
 //API end points
+
+app.use('/api/admin', adminRouter)
+
 
 app.get('/', (req, res)=>{
     res.send("API working")
