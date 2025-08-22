@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { assets } from "../../assets/assets";
 import { AdminContext } from "../../context/AdminContext";
 import {toast} from 'react-toastify'
-
+import axios from 'axios'
 const AddDoctor = () => {
 
   const [docImg, setDocImg] = useState(false)
@@ -10,7 +10,7 @@ const AddDoctor = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [experience, setExperience] = useState("1")
-  const [fees, setFees] = useState("")
+  const [fee, setFee] = useState("")
   const [about, setAbout] = useState("")
   const [speciality, setSpeciality] = useState("General physician")
   const [degree, setDegree] = useState("")
@@ -32,7 +32,7 @@ const AddDoctor = () => {
       formData.append('email', email)
       formData.append('password', password)
       formData.append('experience', experience)
-      formData.append('fees', Number(fees))
+      formData.append('fee', Number(fee))
       formData.append('about', about)
       formData.append('speciality', speciality)
       formData.append('degree', degree)
@@ -41,6 +41,22 @@ const AddDoctor = () => {
       formData.forEach((value, key)=>{
         console.log(`${key} : ${value}`)
       })
+
+      const {data} = await axios.post(backendUrl + '/api/admin/add-doctor' , formData, {headers: {aToken}})
+      if(data.success){
+        toast.success(data.message)
+        setDocImg(false)
+        setName('')
+        setPassword('')
+        setEmail('')
+        setAddress1('')
+        setAddress2('')
+        setDegree('')
+        setAbout('')
+        setFee('')
+      }else{
+        toast.error(data.message)
+      }
     } catch (error) {
       
     }
@@ -96,7 +112,7 @@ const AddDoctor = () => {
 
               <div className="flex-1 flex flex-col gap-1">
                 <p>Doctor Fees</p>
-                <input onChange={(e)=> setFees(e.target.value)} value={fees} className="border rounded px-3 py-2" type="number" placeholder="fees" required />
+                <input onChange={(e)=> setFee(e.target.value)} value={fee} className="border rounded px-3 py-2" type="number" placeholder="fees" required />
               </div>
             </div>
 

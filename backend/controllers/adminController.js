@@ -6,12 +6,14 @@ import jwt from 'jsonwebtoken'
 //api for adding doctor
 const addDoctor = async (req, res)=>{
     try {
-        const {name, email, password, speciality, degree, experience, about, fees, address} = req.body
-        const imageFile = req.imageFile
+        const {name, email, password, speciality, degree, experience, about, fee, address} = req.body
+        const imageFile = req.file
+
+        console.log( {name, email, password, speciality, degree, experience, about, fee, address}, imageFile)
 
         
         //checking for all data to add doctor
-        if(!name || !email || !password || !speciality || !degree || !experience || !about || !address){
+        if(!name || !email || !password || !speciality || !degree || !experience || !about || !fee || !address){
             return res.json({success: false, message: "Missing details"})
         }
         // validating email format
@@ -41,7 +43,7 @@ const addDoctor = async (req, res)=>{
             degree,
             experience,
             about,
-            fees,
+            fee,
             address: JSON.parse(address),
             date: Date.now()
         }
@@ -49,7 +51,8 @@ const addDoctor = async (req, res)=>{
         const newDoctor = new doctorModel(doctorData)
         await newDoctor.save()
 
-        res.json({success: true, message: "Doctor Added"} )
+        // res.json({success: true, message: "Doctor Added"} )
+        res.status(200).json({success: true, message: "Doctor Added"} )
 
     } catch (error) {
         console.log(error)
