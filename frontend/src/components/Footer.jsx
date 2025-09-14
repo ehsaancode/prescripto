@@ -27,14 +27,14 @@ const Footer = () => {
             <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
             <ul className='flex flex-col gap-2 text-gray-600'>
                 <li>+123-6790-331</li>
-                <li>prescripto.com</li>
+                <li>DrBulao.com</li>
             </ul>
         </div>
       </div>
 
       {/* ===copyright text=== */}
       <div>
-        <p className='py-5 text-sm text-center'> © Copyright 2025 - Prescripto - All Right Reserved</p>
+        <p className='py-5 text-sm text-center'> © Copyright 2025 - DrBulao - All Right Reserved</p>
       </div>
     </div>
   )

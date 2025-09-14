@@ -13,8 +13,8 @@ const Contact = () => {
         <div className='flex flex-col justify-center items-start gap-6'>
           <p className='font-semibold text-lg text-gray-600'>OUR OFFICE</p>
           <p className='text-gray-500'>56374 Kolkata WB IN</p>
-          <p className='text-gray-500'>Tel: (415) 555-3445 <br /> Email: prescripto.com</p>
-          <p className='font-semibold text-lg text-gray-600'>Careers @ Prescripto</p>
+          <p className='text-gray-500'>Tel: (415) 555-3445 <br /> Email: DrBulao.com</p>
+          <p className='font-semibold text-lg text-gray-600'>Careers @ DrBulao</p>
           <p className='text-gray-500'>Learn more about our teams and job openings</p>
 
           <button className='border border-black  py-4 px-8 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore Jobs</button>
